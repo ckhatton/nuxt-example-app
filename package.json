@@ -1,5 +1,22 @@
 {
+  "name": "nuxt-example-app",
+  "displayName": "Nuxt v3 Example App",
+  "version": "0.0.1",
+  "description": "This is an app primarily to showcase my skills with Nuxt, and other web orientated implementations.",
+  "keywords": [],
+  "author": {
+    "name": "Christopher Hatton (ckhatton)",
+    "email": "mail@ckhatton.com",
+    "url": "https://ckhatton.com/"
+  },
+  "homepage": "https://nuxt.ckhatton.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ckhatton/nuxt-example-app"
+  },
+  "license": "MIT",
   "private": true,
+  "main": "nuxt.config.js",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",

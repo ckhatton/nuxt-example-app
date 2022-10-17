@@ -1,6 +1,6 @@
 # Nuxt v3 Example App
 
-This is an app primarily to showcase my skills.
+This is an app primarily to showcase my skills with Nuxt, and other web orientated implementations.
 
 Features:
 * Nuxt 3
