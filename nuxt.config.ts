@@ -13,6 +13,9 @@ export default defineNuxtConfig({
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
+  serverMiddleware: [
+    '~/api/calculate'
+  ],
   modules: [
     // https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',

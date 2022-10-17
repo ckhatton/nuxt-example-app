@@ -8,7 +8,7 @@
         <input v-model="form.operand02" type="number" class="p-4" />
       </div>
       <button type="submit" class="bg-blue text-white p-4 rounded-lg">Calculate</button>
-      <p v-if="message.text !== ''" class="text-lg">{{ message.text }}</p>
+      <p v-if="message?.text !== ''" class="text-lg">{{ message?.text }}</p>
     </form>
   </div>
 </template>
@@ -31,7 +31,10 @@ export default {
   methods: {
     async handleForm(event) {
       try {
-        const response = await axios.post('/api/calculate', this.form);
+        const response = await $fetch( '/api/calculate', {
+          method: 'POST',
+          body: this.form
+        });
         this.message = response.data;
       } catch (error) {
         console.log(error);
