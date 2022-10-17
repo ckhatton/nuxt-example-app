@@ -1,6 +1,18 @@
-# Nuxt 3 Minimal Starter
+# Nuxt v3 Example App
 
-Look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
+This is an app primarily to showcase my skills.
+
+Features:
+* Nuxt 3
+* Vue 3
+* Form
+* API (custom)
+* Jest (testing)*
+* Tailwind
+* eslint
+* commitlint
+
+> \* Although, there is an issue currently - Jest does not seem to work properly with Nuxt 3
 
 ## Setup
 
