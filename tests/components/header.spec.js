@@ -6,4 +6,10 @@ describe('Header component tests: ', async () => {
     const wrapper = mount(Header);
     expect(wrapper.isVueInstance()).toBeTruthy();
   });
+
+  test('It renders my name', () => {
+    const name = 'Christopher Hatton';
+    const wrapper = mount(Header);
+    expect(wrapper.html()).toContain(name);
+  });
 })
