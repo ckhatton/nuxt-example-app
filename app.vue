@@ -2,7 +2,7 @@
   <div>
     <NuxtLayout>
       <Contact />
-      <Calculator />
+      <LazyCalculator />
     </NuxtLayout>
   </div>
 </template>
