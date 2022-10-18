@@ -4,6 +4,8 @@ This is an app primarily to showcase my skills with Nuxt, and other web orientat
 
 Features:
 * Nuxt 3
+  * Client/Server-side only plugins
+  * Lazy loading components
 * Vue 3
 * Form
 * API (custom)
