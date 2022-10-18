@@ -1,12 +1,14 @@
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
+  publicRuntimeConfig: {
+    NPM_PACKAGE_NAME: process.env.npm_package_display_name,
+    NPM_PACKAGE_DESCRIPTION: process.env.npm_package_description
+  },
   app: {
     head: {
-      title: process.env.npm_package_name || '',
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
       meta: [
-        { name: 'description', content: process.env.npm_package_description || '' },
         { name: 'robots', content: 'noindex' },
         { name: 'googlebot', content: 'noindex' }
       ],
