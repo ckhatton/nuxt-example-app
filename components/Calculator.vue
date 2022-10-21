@@ -1,5 +1,7 @@
 <template>
   <div class="bg-white rounded-lg shadow-lg p-6 mb-4">
+    <h2 class="text-2xl">Calculator 🔢</h2>
+    <p class="my-4">This is a simple calculator, but it sends the data to my own created API via fetch and express.</p>
     <form
       @submit.prevent="handleForm">
       <div class="flex items-center mb-4 text-2xl">
@@ -7,8 +9,10 @@
         <span> + </span>
         <input v-model="form.operand02" type="number" class="p-4" />
       </div>
-      <button type="submit" class="bg-blue text-white p-4 rounded-lg">Calculate</button>
-      <p v-if="message?.text !== ''" class="text-lg">{{ message?.text }}</p>
+      <div class="flex items-center">
+        <button type="submit" class="mr-4 bg-blue text-white p-4 rounded-lg">Calculate</button>
+        <p v-if="message?.text !== ''" class="text-lg">{{ message?.text }}</p>
+      </div>
     </form>
   </div>
 </template>
@@ -38,10 +42,13 @@ export default {
           method: 'POST',
           body: this.form
         });
-        this.message = response.data;
+        this.message = response;
       } catch (error) {
         console.log(error);
-        this.message = error.data;
+        this.message = {
+          error: true,
+          text: error.toString()
+        }
       }
     }
   }
