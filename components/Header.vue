@@ -3,3 +3,9 @@
     <h2 class="text-2xl">Christopher Hatton</h2>
   </div>
 </template>
+
+<script>
+export default {
+  name: 'Header'
+}
+</script>

@@ -10,6 +10,8 @@
 
 <script>
 export default {
+  name: 'Footer',
+  
   data() {
     return {
       time: new Date().toLocaleTimeString()

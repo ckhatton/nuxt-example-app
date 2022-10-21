@@ -15,6 +15,8 @@
 
 <script>
 export default {
+  name: 'Calculator',
+
   data () {
     return {
       form: {
@@ -28,6 +30,7 @@ export default {
       }
     }
   },
+  
   methods: {
     async handleForm(event) {
       try {
