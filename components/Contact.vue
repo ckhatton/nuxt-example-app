@@ -1,6 +1,6 @@
 <template>
   <div class="md:flex bg-white rounded-lg shadow-lg p-6 mb-4">
-    <img class="h-16 w-16 md:h-24 md:w-24 rounded-full mx-auto md:mx-0 md:mr-6" src="/avatar.png" />
+    <img class="h-16 w-16 md:h-24 md:w-24 rounded-full mx-auto md:mx-0 md:mr-6" src="/avatar.png" loading="lazy" />
     <div class="text-center md:text-left">
       <h3 class="text-lg">Christopher Hatton</h3>
       <div class="text-green font-semibold">Web Developer: Full Stack</div>
