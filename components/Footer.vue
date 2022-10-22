@@ -3,7 +3,7 @@
     <h1>Built with Vue.js using Nuxt.js framework and styled with Tailwind CSS <a class="underline" href="https://github.com/ckhatton/nuxt-example-app" target="_blank">(source code)</a></h1>
     <h2 id="date">
       <span class="time">{{ time }}</span>&nbsp;
-      <span class="date">{{ new Date().toLocaleDateString() }}</span>
+      <span class="date">{{ date }}</span>
     </h2>
   </div>
 </template>
@@ -14,7 +14,8 @@ export default {
   
   data() {
     return {
-      time: `00:00:00`
+      time: `00:00:00`,
+      date: `--/--/----`
     }
   },
 
@@ -28,6 +29,10 @@ export default {
     this.timerID = setInterval(
       () => this.tick(),
       1000
+    );
+
+    setTimeout(
+      () => this.date = new Date().toLocaleDateString(), 1000
     );
   },
   
