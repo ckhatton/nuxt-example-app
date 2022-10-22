@@ -1,9 +1,9 @@
 <template>
-  <div class="bg-blue mb-4 p-8 rounded-lg shadow-lg text-white tracking-wider font-extrabold flex flex-wrap justify-between items-center">
-    <h1 class="text-base">Built with Vue.js using Nuxt.js framework and styled with Tailwind CSS <a class="underline" href="https://github.com/ckhatton/nuxt-example-app" target="_blank">(source code)</a></h1>
-    <h2 id="date" class="text-base">
-      <span>{{ time }}</span>
-      <span>{{ new Date().toLocaleDateString() }}</span>
+  <div class="bg-blue mb-4 p-8 rounded-lg shadow-lg font-bold text-sm text-white tracking-wider flex flex-wrap justify-between items-center">
+    <h1>Built with Vue.js using Nuxt.js framework and styled with Tailwind CSS <a class="underline" href="https://github.com/ckhatton/nuxt-example-app" target="_blank">(source code)</a></h1>
+    <h2 id="date">
+      <span class="time">{{ time }}</span>&nbsp;
+      <span class="date">{{ new Date().toLocaleDateString() }}</span>
     </h2>
   </div>
 </template>
@@ -14,7 +14,7 @@ export default {
   
   data() {
     return {
-      time: new Date().toLocaleTimeString()
+      time: `00:00:00`
     }
   },
 
