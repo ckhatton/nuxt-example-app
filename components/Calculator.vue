@@ -49,10 +49,7 @@ export default {
         this.message = response;
       } catch (error) {
         console.log(error);
-        this.message = {
-          error: true,
-          text: error.toString()
-        }
+        this.message = error.data
       }
     }
   }
