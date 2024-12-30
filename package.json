@@ -3,7 +3,13 @@
   "displayName": "Nuxt v3 Example App",
   "version": "1.0.1",
   "description": "This is an app primarily to showcase my skills with Nuxt, and other web orientated implementations.",
-  "keywords": [],
+  "keywords": [
+    "javascript",
+    "vue",
+    "nuxt",
+    "demo",
+    "example"
+  ],
   "author": {
     "name": "Christopher Hatton (ckhatton)",
     "email": "mail@ckhatton.com",
@@ -15,8 +21,6 @@
     "url": "https://github.com/ckhatton/nuxt-example-app"
   },
   "license": "MIT",
-  "private": true,
-  "main": "nuxt.config.js",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
@@ -30,19 +34,16 @@
     "@babel/preset-env": "^7.19.4",
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0",
-    "@nuxtjs/eslint-module": "^3.1.0",
-    "@nuxtjs/tailwindcss": "^5.3.5",
-    "@types/express": "^4.17.14",
+    "@nuxt/eslint": "^0.7.4",
+    "@nuxtjs/tailwindcss": "^6.12.2",
     "@vue/test-utils": "^2.1.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^27.5.1",
-    "eslint": "^8.25.0",
+    "eslint": "^8.57.1",
     "husky": "^8.0.1",
     "jest": "^27.5.1",
-    "nuxt": "3.0.0-rc.11",
+    "nuxt": "^3.15.0",
+    "typescript": "^5.7.2",
     "vue3-jest": "^27.0.0-alpha.1"
-  },
-  "dependencies": {
-    "express": "^4.18.2"
   }
 }
