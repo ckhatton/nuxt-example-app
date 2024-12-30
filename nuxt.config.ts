@@ -10,23 +10,20 @@ export default defineNuxtConfig({
         { name: 'description', content: packageJSON.description || '' },
         { name: 'keywords', content: packageJSON.keywords?.toString() || '' },
         { name: 'robots', content: 'noindex' },
-        { name: 'googlebot', content: 'noindex' }
+        { name: 'googlebot', content: 'noindex' },
       ],
-      link: [
-        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-      ]
-    }
+      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    },
   },
-  serverMiddleware: [
-    '~/api/calculate'
-  ],
+  compatibilityDate: '2024-11-01',
+  devtools: { enabled: true },
   modules: [
-    // https://github.com/nuxt-community/eslint-module
-    '@nuxtjs/eslint-module',
+    // https://eslint.nuxt.com
+    '@nuxt/eslint',
     // https://tailwindcss.nuxtjs.org
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
   ],
   typescript: {
-    shim: false
-  }
-})
+    shim: false,
+  },
+});

@@ -2,11 +2,16 @@
 
 This is an app primarily to showcase my skills with Nuxt, and other web orientated implementations.
 
-Features:
+It is hosted here: [https://nuxt.ckhatton.com](https://nuxt.ckhatton.com "https://nuxt.ckhatton.com")
+
+When the main branch is updated, an automated build is carried out.
+
+**Features:**
 * Nuxt 3
   * Client/Server-side only plugins
   * Lazy loading components
 * Vue 3
+* CI: CircleCI (via server.ckhatton.com)
 * Form
 * API (custom)
 * Jest (testing)*
