@@ -1,7 +1,7 @@
 {
   "name": "nuxt-example-app",
   "displayName": "Nuxt v3 Example App",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "This is an app primarily to showcase my skills with Nuxt, and other web orientated implementations.",
   "keywords": [
     "javascript",
