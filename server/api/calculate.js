@@ -9,14 +9,20 @@ export default defineEventHandler(async (event) => {
   }
 
   if (event.node.req.method === 'POST') {
-    const body = await readBody(event).catch(() => {
+    const body = await readBody(event).catch(() => ({}));
+
+    if (
+      isNaN(parseFloat(body.operand01)) ||
+      isNaN(parseFloat(body.operand02))
+    ) {
       event.node.res.statusCode = 500;
 
       return {
         error: true,
         text: 'Request body could not be read.',
-      }
-    });
+      };
+    }
+
     const answer = body.operand01 + body.operand02;
 
     event.node.res.statusCode = 200;
