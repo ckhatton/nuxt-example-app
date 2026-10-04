@@ -1,5 +1,6 @@
 module.exports = {
   moduleNameMapper: {
+    '^~~/(.*)$': '<rootDir>/$1',
     '^@/(.*)$': '<rootDir>/app/$1',
     '^~/(.*)$': '<rootDir>/app/$1',
   },
@@ -13,6 +14,7 @@ module.exports = {
   collectCoverageFrom: [
     '<rootDir>/app/components/**/*.vue',
     '<rootDir>/app/pages/**/*.vue',
+    '<rootDir>/server/**/*.js',
   ],
   testEnvironmentOptions: {
     customExportConditions: ["node", "node-addons"],
