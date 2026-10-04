@@ -9,12 +9,11 @@ export default defineEventHandler(async (event) => {
   }
 
   if (event.node.req.method === 'POST') {
-    const body = await readBody(event).catch(() => ({}));
+    const body = (await readBody(event).catch(() => null)) ?? {};
+    const operand01 = parseFloat(body.operand01);
+    const operand02 = parseFloat(body.operand02);
 
-    if (
-      isNaN(parseFloat(body.operand01)) ||
-      isNaN(parseFloat(body.operand02))
-    ) {
+    if (isNaN(operand01) || isNaN(operand02)) {
       event.node.res.statusCode = 500;
 
       return {
@@ -23,7 +22,7 @@ export default defineEventHandler(async (event) => {
       };
     }
 
-    const answer = body.operand01 + body.operand02;
+    const answer = operand01 + operand02;
 
     event.node.res.statusCode = 200;
 
