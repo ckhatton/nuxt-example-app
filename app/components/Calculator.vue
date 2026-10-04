@@ -21,13 +21,13 @@
           v-model="form.operand01"
           type="number"
           class="border-b-2 p-4 max-w-36 text-right"
-        />
+        >
         <span> + </span>
         <input
           v-model="form.operand02"
           type="number"
           class="border-b-2 p-4 max-w-36"
-        />
+        >
       </div>
       <div class="flex items-center">
         <button type="submit" class="mr-4 bg-blue text-white p-4 rounded-lg">

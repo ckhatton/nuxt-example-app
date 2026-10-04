@@ -1,7 +1,7 @@
 module.exports = {
   moduleNameMapper: {
-    '^@/(.*)$': '<rootDir>/$1',
-    '^~/(.*)$': '<rootDir>/$1',
+    '^@/(.*)$': '<rootDir>/app/$1',
+    '^~/(.*)$': '<rootDir>/app/$1',
   },
   moduleFileExtensions: ['ts', 'js', 'vue', 'json'],
   transform: {
@@ -11,8 +11,8 @@ module.exports = {
   },
   collectCoverage: true,
   collectCoverageFrom: [
-    '<rootDir>/components/**/*.vue',
-    '<rootDir>/pages/**/*.vue',
+    '<rootDir>/app/components/**/*.vue',
+    '<rootDir>/app/pages/**/*.vue',
   ],
   testEnvironmentOptions: {
     customExportConditions: ["node", "node-addons"],

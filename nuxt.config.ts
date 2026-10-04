@@ -1,5 +1,5 @@
 import packageJSON from './package.json';
-// https://v3.nuxtjs.org/api/configuration/nuxt.config
+// https://nuxt.com/docs/api/nuxt-config
 export default defineNuxtConfig({
   app: {
     head: {
@@ -15,7 +15,7 @@ export default defineNuxtConfig({
       link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
     },
   },
-  compatibilityDate: '2024-11-01',
+  compatibilityDate: '2026-10-01',
   devtools: { enabled: true },
   modules: [
     // https://eslint.nuxt.com
