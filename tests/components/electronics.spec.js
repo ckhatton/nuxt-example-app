@@ -30,7 +30,7 @@ describe('Electronics component tests: ', () => {
   test('It asks for exactly two Ohm\'s law values', async () => {
     const wrapper = mount(Electronics);
     await wrapper.find('.ohm-current').setValue(1);
-    expect(wrapper.find('.ohm-result').text()).toBe('Enter exactly two values.');
+    expect(wrapper.find('.ohm-result .value').text()).toBe('Enter exactly two values.');
   });
 
   test('It sizes an LED resistor', async () => {

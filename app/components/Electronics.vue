@@ -40,9 +40,9 @@
         />
       </div>
     </div>
-    <p class="text-lg">
-      Value: <span class="font-semibold resistor-value">{{ resistorLabel }}</span>
-    </p>
+    <Answer>
+      <span class="resistor-value">{{ resistorLabel }}</span>
+    </Answer>
 
     <h3 class="text-xl mt-8 mb-2">Ohm's law</h3>
     <p class="mb-4">Fill in any two values to work out the third, and the power.</p>
@@ -60,13 +60,13 @@
         <input v-model.number="ohm.resistance" type="number" step="any" class="ohm-resistance border-b-2 p-2 w-full" >
       </label>
     </div>
-    <p class="text-lg ohm-result">
+    <Answer class="ohm-result" :error="!ohmResult">
       <template v-if="ohmResult">
         {{ round(ohmResult.voltage) }} V, {{ round(ohmResult.current) }} A,
         {{ formatOhms(ohmResult.resistance) }}; power {{ round(ohmResult.power) }} W
       </template>
       <template v-else>Enter exactly two values.</template>
-    </p>
+    </Answer>
 
     <h3 class="text-xl mt-8 mb-2">LED resistor</h3>
     <p class="mb-4">The series resistor an LED needs, rounded up to a standard (E12) value.</p>
@@ -84,24 +84,27 @@
         <input v-model.number="led.current" type="number" step="any" class="led-current border-b-2 p-2 w-full" >
       </label>
     </div>
-    <p class="text-lg led-result">
+    <Answer class="led-result" :error="!ledResult">
       <template v-if="ledResult">
-        Use a <span class="font-semibold">{{ formatOhms(ledResult.standard) }}</span> resistor
+        Use a {{ formatOhms(ledResult.standard) }} resistor
         (exactly {{ formatOhms(ledResult.exact) }}), giving {{ round(ledResult.current) }} mA and
         {{ round(ledResult.power) }} W.
       </template>
       <template v-else>The supply must be higher than the LED's forward voltage.</template>
-    </p>
+    </Answer>
   </div>
 </template>
 
 <script>
+import Answer from '~/components/Answer.vue';
 import { BAND_COLOURS, formatOhms, ledResistor, ohmsLaw, resistorValue } from '~/utils/electronics';
 
 const digits = BAND_COLOURS.filter((option) => option.digit !== undefined);
 
 export default {
   name: 'Electronics',
+
+  components: { Answer },
 
   data() {
     return {
