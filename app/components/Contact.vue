@@ -3,7 +3,7 @@
     <img class="h-16 w-16 md:h-24 md:w-24 rounded-full mx-auto md:mx-0 md:mr-6" src="/monogram.svg" alt="">
     <div class="text-center md:text-left">
       <h3 class="text-lg">Christopher Hatton</h3>
-      <div class="text-green font-semibold">Senior Fullstack Engineer / Development Lead</div>
+      <div class="text-blue font-semibold">Senior Fullstack Engineer / Development Lead</div>
       <div class="text-gray-700"><a href="mailto:mail@ckhatton.com">mail@ckhatton.com</a></div>
       <div class="text-gray-700"><a href="tel:+447961711210">+44 (0) 7961 711 210</a></div>
       <div class="text-gray-700">United Kingdom</div>
