@@ -1,17 +1,14 @@
-/**
- * @jest-environment jsdom
- */
-
+import { describe, test, expect, vi, beforeEach, afterEach } from 'vitest';
 import { mount } from '@vue/test-utils';
 import Footer from '@/components/Footer.vue';
 
 describe('Footer component tests: ', () => {
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(() => {
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   test('It renders placeholders before the clock starts', () => {
@@ -22,14 +19,14 @@ describe('Footer component tests: ', () => {
 
   test('It shows the time and date after a second', async () => {
     const wrapper = mount(Footer);
-    jest.advanceTimersByTime(1000);
+    vi.advanceTimersByTime(1000);
     await wrapper.vm.$nextTick();
     expect(wrapper.find('.time').text()).not.toBe('00:00:00');
     expect(wrapper.find('.date').text()).not.toBe('--/--/----');
   });
 
   test('It stops the clock when unmounted', () => {
-    const clearIntervalSpy = jest.spyOn(global, 'clearInterval');
+    const clearIntervalSpy = vi.spyOn(global, 'clearInterval');
     const wrapper = mount(Footer);
     const { timerID } = wrapper.vm;
     wrapper.unmount();

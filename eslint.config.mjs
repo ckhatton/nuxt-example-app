@@ -12,17 +12,4 @@ export default withNuxt(
       'vue/no-reserved-component-names': 'off',
     },
   },
-  {
-    files: ['tests/**/*.spec.js'],
-    languageOptions: {
-      globals: {
-        describe: 'readonly',
-        test: 'readonly',
-        expect: 'readonly',
-        jest: 'readonly',
-        beforeEach: 'readonly',
-        afterEach: 'readonly',
-      },
-    },
-  },
 )

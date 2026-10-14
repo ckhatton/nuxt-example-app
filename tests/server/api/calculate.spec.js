@@ -1,8 +1,11 @@
-// Stand in for the Nitro/H3 auto-imports used by the handler
-global.defineEventHandler = (handler) => handler;
-global.readBody = (event) => Promise.resolve(event.body);
+// @vitest-environment node
+import { describe, test, expect, vi } from 'vitest';
 
-const handler = require('~~/server/api/calculate.js').default;
+// Stand in for the Nitro/H3 auto-imports used by the handler
+vi.stubGlobal('defineEventHandler', (handler) => handler);
+vi.stubGlobal('readBody', (event) => Promise.resolve(event.body));
+
+const { default: handler } = await import('~~/server/api/calculate.js');
 
 const createEvent = (method, body) => ({
   node: { req: { method }, res: {} },

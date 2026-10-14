@@ -1,7 +1,4 @@
-/**
- * @jest-environment jsdom
- */
-
+import { describe, test, expect } from 'vitest';
 import { mount } from '@vue/test-utils';
 import Header from '@/components/Header.vue';
 

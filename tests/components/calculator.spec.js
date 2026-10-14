@@ -1,46 +1,49 @@
-/**
- * @jest-environment jsdom
- */
-
-import { mount, flushPromises } from '@vue/test-utils';
+import { describe, test, expect, vi, afterEach } from 'vitest';
+import { mount } from '@vue/test-utils';
+import { registerEndpoint } from '@nuxt/test-utils/runtime';
+import { readBody, setResponseStatus } from 'h3';
 import Calculator from '@/components/Calculator.vue';
+
+// A stand-in for the real /api/calculate endpoint; each test sets the reply
+let received;
+let reply;
+
+registerEndpoint('/api/calculate', {
+  method: 'POST',
+  handler: async (event) => {
+    received = await readBody(event);
+    setResponseStatus(event, reply.status);
+    return reply.body;
+  },
+});
 
 describe('Calculator component tests: ', () => {
   afterEach(() => {
-    delete global.$fetch;
+    vi.restoreAllMocks();
   });
 
   test('It posts both operands to the API', async () => {
-    global.$fetch = jest.fn().mockResolvedValue({ error: false, text: '' });
+    reply = { status: 200, body: { error: false, text: '' } };
     const wrapper = mount(Calculator);
     const inputs = wrapper.findAll('input');
     await inputs[0].setValue(2);
     await inputs[1].setValue(3);
     await wrapper.find('form').trigger('submit');
-    expect(global.$fetch).toHaveBeenCalledWith('/api/calculate', {
-      method: 'POST',
-      body: { operand01: 2, operand02: 3 },
-    });
+    await vi.waitFor(() => expect(received).toEqual({ operand01: 2, operand02: 3 }));
   });
 
   test('It shows the answer from the API', async () => {
-    global.$fetch = jest
-      .fn()
-      .mockResolvedValue({ error: false, text: 'The answer is: 5' });
+    reply = { status: 200, body: { error: false, text: 'The answer is: 5' } };
     const wrapper = mount(Calculator);
     await wrapper.find('form').trigger('submit');
-    await flushPromises();
-    expect(wrapper.text()).toContain('The answer is: 5');
+    await vi.waitFor(() => expect(wrapper.text()).toContain('The answer is: 5'));
   });
 
   test('It shows the error message when the API fails', async () => {
-    jest.spyOn(console, 'log').mockImplementation(() => {});
-    global.$fetch = jest.fn().mockRejectedValue({
-      data: { error: true, text: 'Request body could not be read.' },
-    });
+    vi.spyOn(console, 'log').mockImplementation(() => {});
+    reply = { status: 500, body: { error: true, text: 'Request body could not be read.' } };
     const wrapper = mount(Calculator);
     await wrapper.find('form').trigger('submit');
-    await flushPromises();
-    expect(wrapper.text()).toContain('Request body could not be read.');
+    await vi.waitFor(() => expect(wrapper.text()).toContain('Request body could not be read.'));
   });
 });
