@@ -1,3 +1,4 @@
+import { describe, test, expect } from 'vitest';
 import { formatOhms, ledResistor, nextE12, ohmsLaw, resistorValue } from '~/utils/electronics';
 
 describe('Electronics maths tests: ', () => {

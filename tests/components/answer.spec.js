@@ -1,7 +1,4 @@
-/**
- * @jest-environment jsdom
- */
-
+import { describe, test, expect } from 'vitest';
 import { mount } from '@vue/test-utils';
 import Answer from '@/components/Answer.vue';
 
