@@ -18,12 +18,6 @@ export default {
       date: `--/--/----`
     }
   },
-
-  methods: {
-    tick() {
-      this.time = new Date().toLocaleTimeString();
-    }
-  },
   
   mounted: function() {
     this.timerID = setInterval(
@@ -38,6 +32,12 @@ export default {
   
   unmounted: function() {
     clearInterval(this.timerID);
+  },
+
+  methods: {
+    tick() {
+      this.time = new Date().toLocaleTimeString();
+    }
   }
 };
 </script>

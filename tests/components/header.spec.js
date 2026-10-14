@@ -1,7 +1,4 @@
-/**
- * @jest-environment jsdom
- */
-
+import { describe, test, expect } from 'vitest';
 import { mount } from '@vue/test-utils';
 import Header from '@/components/Header.vue';
 
@@ -12,7 +9,7 @@ describe('Header component tests: ', () => {
   });
 
   test('It renders my name', () => {
-    const name = 'Nuxt v3 Example App';
+    const name = 'Nuxt Example App';
     const wrapper = mount(Header);
     expect(wrapper.html()).toContain(name);
   });

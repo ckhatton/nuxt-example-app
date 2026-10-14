@@ -21,27 +21,31 @@
           v-model="form.operand01"
           type="number"
           class="border-b-2 p-4 max-w-36 text-right"
-        />
+        >
         <span> + </span>
         <input
           v-model="form.operand02"
           type="number"
           class="border-b-2 p-4 max-w-36"
-        />
+        >
       </div>
-      <div class="flex items-center">
-        <button type="submit" class="mr-4 bg-blue text-white p-4 rounded-lg">
-          Calculate
-        </button>
-        <p v-if="message?.text !== ''" class="text-lg">{{ message?.text }}</p>
-      </div>
+      <button type="submit" class="bg-blue text-white p-4 rounded-lg">
+        Calculate
+      </button>
+      <Answer v-if="message?.text" :error="message?.error" class="mt-4">
+        {{ message?.text }}
+      </Answer>
     </form>
   </div>
 </template>
 
 <script>
+import Answer from '~/components/Answer.vue';
+
 export default {
   name: 'Calculator',
+
+  components: { Answer },
 
   data() {
     return {

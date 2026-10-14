@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96">
+  <defs>
+    <radialGradient id="glow" cx="40%" cy="35%" r="70%">
+      <stop offset="0" stop-color="#4f86b3" />
+      <stop offset="1" stop-color="#1b4361" />
+    </radialGradient>
+  </defs>
+  <circle cx="48" cy="48" r="48" fill="url(#glow)" />
+  <g fill="none" stroke="#fff" stroke-opacity="0.4" stroke-width="2">
+    <path d="M0 30H12L18 36" />
+    <circle cx="20.5" cy="38.5" r="2.5" />
+    <path d="M96 66H84L78 60" />
+    <circle cx="75.5" cy="57.5" r="2.5" />
+  </g>
+  <text x="48" y="59" text-anchor="middle" font-family="'Source Sans Pro', 'Source Sans 3', Arial, sans-serif" font-weight="800" font-size="31" fill="#fff">CH</text>
+</svg>

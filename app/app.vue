@@ -3,6 +3,7 @@
     <NuxtLayout>
       <Contact />
       <LazyCalculator />
+      <LazyElectronics />
       <LazyTesting />
     </NuxtLayout>
   </div>
