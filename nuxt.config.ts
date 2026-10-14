@@ -1,4 +1,17 @@
+import { createRequire } from 'node:module';
 import packageJSON from './package.json';
+
+// @nuxt/eslint is a dev dependency, so skip it when only production
+// dependencies are installed
+const hasEslint = (() => {
+  try {
+    createRequire(import.meta.url).resolve('@nuxt/eslint');
+    return true;
+  } catch {
+    return false;
+  }
+})();
+
 // https://nuxt.com/docs/api/nuxt-config
 export default defineNuxtConfig({
   app: {
@@ -19,7 +32,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
     // https://eslint.nuxt.com
-    '@nuxt/eslint',
+    ...(hasEslint ? ['@nuxt/eslint'] : []),
     // https://tailwindcss.nuxtjs.org
     '@nuxtjs/tailwindcss',
   ],
